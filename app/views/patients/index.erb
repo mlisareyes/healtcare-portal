@@ -1,0 +1,10 @@
+<h2>All Patients:</h2>
+  <ul>
+    <% current_user.patients.each do |patient| %>
+    <a href="/patients/<%= patient.id %>"><li><%= patient.name %></li></a>
+    <% end %>
+  </ul><br>
+
+<a href="/patients/new"><input type="submit" value="Create New Patient"></a><br><br>
+<a href="/users/home"><input type="submit" value="Home"></a>
+<a href="/sessions/logout"><input type="submit" value="Log Out"></a>

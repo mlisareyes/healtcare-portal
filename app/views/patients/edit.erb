@@ -1,0 +1,17 @@
+<h1>Edit Patient Information Below:</h1>
+
+<form action="/patients/<%= @patient.id %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <label for="name">Name:</label>
+  <input type="text" name="patient[name]" value="<%=@patient.name%>"><br>
+  <label for="birthdate"> Birthdate:</label>
+  <input type="text" name="patient[birthdate]" value="<%=@patient.birthdate%>"><br>
+  <label for="gender">Gender:</label>
+  <input type="text" name="patient[gender]" value="<%=@patient.gender%>"><br>
+  <label for="notes">Notes:</label>
+  <input type="text" name="patient[notes]" value="<%=@patient.notes%>"><br>
+  <input type="submit">
+</form>
+
+<a href="/users/home"><input type="submit" value="Home"></a>
+<a href="/sessions/logout"><input type="submit" value="Log Out"></a>
