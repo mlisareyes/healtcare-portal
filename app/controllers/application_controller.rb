@@ -37,6 +37,6 @@ class ApplicationController < Sinatra::Base
         redirect "/sessions/restricted"
       end
     end
-    
+
   end
 end
