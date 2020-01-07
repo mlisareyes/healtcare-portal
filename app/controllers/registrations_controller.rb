@@ -5,7 +5,7 @@ class RegistrationsController < ApplicationController
   end
 
   post '/registrations' do
-    @user = User.new(name: params["name"], username: params["username"], password: params["password"])
+    @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
       redirect '/users/home'

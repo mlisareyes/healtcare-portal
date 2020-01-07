@@ -1,3 +1,4 @@
+require 'pry'
 class PatientsController < ApplicationController
 
   get '/patients' do
@@ -12,7 +13,8 @@ class PatientsController < ApplicationController
   end
 
   post '/patients' do
-    @patient = Patient.new(name: params[:name], birthdate: params[:birthdate], gender: params[:gender], notes: params[:notes], user_id: current_user.id)
+    @patient = Patient.new(params[:patient])
+    @patient.user_id = current_user.id
 
     if @patient.save
       redirect "/patients/#{@patient.id}"
@@ -51,7 +53,7 @@ class PatientsController < ApplicationController
   end
 
   delete '/patients/:id' do
-    @patient = Patient.find(params[:id])
+    @patient = Patient.find_by(id: params[:id])
     redirect_if_not_logged_in
     redirect_if_incorrect_user
 
