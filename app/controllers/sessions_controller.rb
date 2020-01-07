@@ -10,7 +10,9 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect '/users/home'
     else
-      redirect "/sessions/login"
+      @errors = ['Invalid username or password.']
+      erb :failure
+      #redirect "/sessions/login"
     end
   end
 

@@ -19,7 +19,9 @@ class PatientsController < ApplicationController
     if @patient.save
       redirect "/patients/#{@patient.id}"
     else
-      erb :'patients/new'
+      #erb :'patients/new'
+      @errors = ['Patient was not created. Please try again.']
+      erb :failure
     end
   end
 
@@ -48,8 +50,12 @@ class PatientsController < ApplicationController
     redirect_if_not_logged_in
     redirect_if_incorrect_user
 
-    @patient.update(params[:patient])
-    redirect "/patients/#{@patient.id}"
+    if @patient.update(params[:patient])
+      redirect "/patients/#{@patient.id}"
+    else
+      @errors = ['Patient was not updated.']
+      erb :failure
+    end
   end
 
   delete '/patients/:id' do
@@ -60,7 +66,9 @@ class PatientsController < ApplicationController
     if @patient.destroy
       redirect "/patients"
     else
-      redirect "/patients/#{patient.id}"
+      @errors = ['Patient was not deleted.']
+      erb :failure
+    #redirect "/patients/#{patient.id}"
     end
   end
 end

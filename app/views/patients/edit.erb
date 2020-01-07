@@ -8,8 +8,8 @@
   <input type="text" name="patient[birthdate]" value="<%=@patient.birthdate%>"><br>
   <label for="gender">Gender:</label>
   <input type="text" name="patient[gender]" value="<%=@patient.gender%>"><br>
-  <label for="notes">Notes:</label>
-  <input type="text" name="patient[notes]" value="<%=@patient.notes%>"><br>
+  <label for="notes">Notes:</label><br>
+  <textarea rows="8" cols="80" name="patient[notes]"> <%=@patient.notes%></textarea><br>
   <input type="submit">
 </form>
 
