@@ -10,8 +10,7 @@ class RegistrationsController < ApplicationController
       session[:user_id] = @user.id
       redirect '/users/home'
     else
-      #redirect "/registrations/signup"
-      @errors = ['Signup failed. Please make sure to enter a name, username, and password.']
+      @errors = ['Signup failed. Please make sure to enter your name, username, and password.']
       erb :failure
     end
   end

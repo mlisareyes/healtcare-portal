@@ -68,7 +68,6 @@ class PatientsController < ApplicationController
     else
       @errors = ['Patient was not deleted.']
       erb :failure
-    #redirect "/patients/#{patient.id}"
     end
   end
 end

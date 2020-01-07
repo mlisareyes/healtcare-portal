@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     else
       @errors = ['Invalid username or password.']
       erb :failure
-      #redirect "/sessions/login"
     end
   end
 
