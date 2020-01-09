@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id #then we'll set the session user_id equal to the @user.id
       redirect '/users/home' #and then redirect the user to their homepage view.
     else
-      @errors = ['Invalid username or password.'] #otherwise, it will redirect the user to the failure route to display this error message. 
+      @errors = ['Invalid username or password.'] #otherwise, it will redirect the user to the failure route to display this error message.
       erb :failure
     end
   end
@@ -19,8 +19,8 @@ class SessionsController < ApplicationController
     erb :'/sessions/restricted'
   end
 
-  get '/sessions/logout' do
-    session.clear
+  get '/sessions/logout' do #this method for the get request for the route /sessions/logout clears the session when the user logs out.
+    session.clear #this clears all the data, including the user's ID, from the session hash.
     redirect '/'
   end
 end
