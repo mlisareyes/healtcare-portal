@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
   post '/patients' do
     @patient = Patient.new(params[:patient])
     @patient.user_id = current_user.id
-    binding.pry
+    
     if @patient.save
       redirect "/patients/#{@patient.id}"
     else
