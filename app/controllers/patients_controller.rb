@@ -14,11 +14,10 @@ class PatientsController < ApplicationController
   post '/patients' do
     @patient = Patient.new(params[:patient])
     @patient.user_id = current_user.id
-    
+
     if @patient.save
       redirect "/patients/#{@patient.id}"
     else
-      #erb :'patients/new'
       @errors = ['Patient was not created. Please try again.']
       erb :failure
     end
