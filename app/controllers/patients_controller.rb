@@ -38,7 +38,6 @@ class PatientsController < ApplicationController
 
   get '/patients/:id/edit' do
     @patient = Patient.find_by(id: params[:id])
-    binding.pry
     redirect_if_not_logged_in
     redirect_if_incorrect_user
 
